@@ -54,6 +54,13 @@ public class Junit5Test {
         });
     }
 
+    @Test
+    public void shouldNotThrowAnException() {
+        Assertions.assertDoesNotThrow(() -> {
+            System.out.println("Does not throw an Exception.");
+        });
+    }
+
     @AfterEach
     public void runsAfterEveryMethod() {
         System.out.println("After Finished Running a Test Method");
