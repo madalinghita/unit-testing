@@ -10,7 +10,7 @@ import org.mockito.exceptions.verification.VerificationInOrderFailure;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.*;
 
-public class VerificationTest {
+public class IVerificationTest {
 
     private PasswordEncoder passwordEncoder;
 
@@ -65,7 +65,7 @@ public class VerificationTest {
     }
 
     @Test
-    public void testVerifyNoMoreInteractionsSuccess1() {
+    public void testVerifyNoMoreInteractionsSuccess() {
         verifyNoMoreInteractions(passwordEncoder);
     }
 
@@ -83,11 +83,6 @@ public class VerificationTest {
     public void testVerifyNoMoreInteractionsFailure() {
         passwordEncoder.encode("a");
         Assertions.assertThrows(NoInteractionsWanted.class, () -> verifyNoMoreInteractions(passwordEncoder));
-    }
-
-    @Test
-    public void testVerifyNoMoreInteractionsSuccess() {
-        verifyNoMoreInteractions(passwordEncoder);
     }
 
     @Test

@@ -10,7 +10,7 @@ import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.verify;
 
-public class DecimalFormatSpyTest {
+public class DDecimalFormatSpyTest {
 
     @Test
     public void test() {

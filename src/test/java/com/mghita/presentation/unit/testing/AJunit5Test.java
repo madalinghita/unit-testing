@@ -4,7 +4,7 @@ import org.junit.jupiter.api.*;
 
 import java.io.IOException;
 
-public class Junit5Test {
+public class AJunit5Test {
 
     @BeforeAll
     public static void runsBeforeEverything() {

@@ -8,12 +8,11 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.verifyNoMoreInteractions;
+import static org.mockito.Mockito.*;
 import static org.mockito.internal.util.MockUtil.isMock;
 
 @ExtendWith(MockitoExtension.class)
-public class AnnotationsTest {
+public class CAnnotationsTest {
 
     @Mock
     private PasswordEncoder passwordEncoder;
@@ -32,7 +31,7 @@ public class AnnotationsTest {
     @Test
     public void test() {
         passwordEncoder.encode("1");
-        verify(passwordEncoder).encode(anyString());
+        verify(passwordEncoder, times(1)).encode(anyString());
         verifyNoMoreInteractions(userRepository);
         assertFalse(isMock(userService));
     }

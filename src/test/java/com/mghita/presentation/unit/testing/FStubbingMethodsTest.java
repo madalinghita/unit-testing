@@ -10,7 +10,7 @@ import java.util.Date;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
-public class StubbingMethodsTest {
+public class FStubbingMethodsTest {
 
     private PasswordEncoder passwordEncoder;
 
@@ -55,7 +55,9 @@ public class StubbingMethodsTest {
     public void thenAnswerCallRealMethod() {
         Date mock = mock(Date.class);
         doAnswer(InvocationOnMock::callRealMethod).when(mock).setTime(42);
-        doAnswer(InvocationOnMock::callRealMethod).when(mock).getTime();
+//        doCallRealMethod().when(mock).setTime(42);
+
+        when(mock.getTime()).thenCallRealMethod();
 
         mock.setTime(42);
 
@@ -64,18 +66,7 @@ public class StubbingMethodsTest {
 
     @Test
     public void thenCallRealMethodFail() {
-        Assertions.assertThrows(Exception.class, () -> when(passwordEncoder.encode("1")).thenCallRealMethod());
-    }
-
-    @Test
-    public void thenCallRealMethod() {
-        Date mock = mock(Date.class);
-        doCallRealMethod().when(mock).setTime(42);
-        when(mock.getTime()).thenCallRealMethod();
-
-        mock.setTime(42);
-
-        assertEquals(42, mock.getTime());
+        Assertions.assertThrows(Exception.class, () -> when(passwordEncoder.encode("1")).thenCallRealMethod()); // calling real abstract method
     }
 
     @Test

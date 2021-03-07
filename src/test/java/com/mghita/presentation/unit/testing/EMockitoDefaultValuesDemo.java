@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 
-public class MockitoDefaultValuesDemo {
+public class EMockitoDefaultValuesDemo {
 
     @Test
     public void testDefaultValues() {

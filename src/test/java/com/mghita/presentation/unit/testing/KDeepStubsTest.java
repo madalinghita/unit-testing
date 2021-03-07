@@ -6,7 +6,7 @@ import org.mockito.Mockito;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.*;
 
-public class DeepStubsTest {
+public class KDeepStubsTest {
 
     @Test
     public void testVerify() {

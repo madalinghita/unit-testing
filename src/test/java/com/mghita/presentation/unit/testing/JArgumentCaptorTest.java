@@ -8,7 +8,7 @@ import java.util.Arrays;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
-public class ArgumentCaptorTest {
+public class JArgumentCaptorTest {
 
     @Test
     public void testSingleCall() {
