@@ -52,11 +52,23 @@ public class FStubbingMethodsTest {
     }
 
     @Test
+    public void thenThrowExceptionByInstance() {
+        when(passwordEncoder.encode("1")).thenThrow(new IllegalArgumentException());
+        Assertions.assertThrows(IllegalArgumentException.class, () -> passwordEncoder.encode("1"));
+    }
+
+    @Test
+    public void thenThrowExceptionByClass() {
+        when(passwordEncoder.encode("1")).thenThrow(IllegalArgumentException.class);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> passwordEncoder.encode("1"));
+    }
+
+    @Test
     public void thenAnswerCallRealMethod() {
         Date mock = mock(Date.class);
         doAnswer(InvocationOnMock::callRealMethod).when(mock).setTime(42);
-//        doCallRealMethod().when(mock).setTime(42);
 
+//        doCallRealMethod().when(mock).setTime(42);
         when(mock.getTime()).thenCallRealMethod();
 
         mock.setTime(42);
@@ -67,17 +79,5 @@ public class FStubbingMethodsTest {
     @Test
     public void thenCallRealMethodFail() {
         Assertions.assertThrows(Exception.class, () -> when(passwordEncoder.encode("1")).thenCallRealMethod()); // calling real abstract method
-    }
-
-    @Test
-    public void thenThrowExceptionByInstance() {
-        when(passwordEncoder.encode("1")).thenThrow(new IllegalArgumentException());
-        Assertions.assertThrows(IllegalArgumentException.class, () -> passwordEncoder.encode("1"));
-    }
-
-    @Test
-    public void thenThrowExceptionByClass() {
-        when(passwordEncoder.encode("1")).thenThrow(IllegalArgumentException.class);
-        Assertions.assertThrows(IllegalArgumentException.class, () -> passwordEncoder.encode("1"));
     }
 }
