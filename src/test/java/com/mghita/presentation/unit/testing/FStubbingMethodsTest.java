@@ -3,7 +3,6 @@ package com.mghita.presentation.unit.testing;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.invocation.InvocationOnMock;
 
 import java.util.Date;
 
@@ -66,9 +65,8 @@ public class FStubbingMethodsTest {
     @Test
     public void thenAnswerCallRealMethod() {
         Date mock = mock(Date.class);
-        doAnswer(InvocationOnMock::callRealMethod).when(mock).setTime(42);
 
-//        doCallRealMethod().when(mock).setTime(42);
+        doCallRealMethod().when(mock).setTime(42);
         when(mock.getTime()).thenCallRealMethod();
 
         mock.setTime(42);

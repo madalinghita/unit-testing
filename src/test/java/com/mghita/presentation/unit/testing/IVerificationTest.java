@@ -88,13 +88,13 @@ public class IVerificationTest {
     @Test
     public void verifyTimeout() {
         usePasswordEncoderInOtherThread();
-        verify(passwordEncoder, timeout(500)).encode("a");
+        verify(passwordEncoder, timeout(500)).encode("a"); //check multiple times
     }
 
     @Test
     public void verifyAfter() {
         usePasswordEncoderInOtherThread();
-        verify(passwordEncoder, after(500)).encode("a");
+        verify(passwordEncoder, after(500)).encode("a"); //check one time after
     }
 
     private void usePasswordEncoderInOtherThread() {
