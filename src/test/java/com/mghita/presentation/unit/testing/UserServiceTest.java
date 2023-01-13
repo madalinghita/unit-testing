@@ -53,12 +53,12 @@ public class UserServiceTest {
 
     @Test
     public void shouldBeInvalidForInvalidPassword() {
-        boolean userIsValid = userService.isValidUser(ENABLED_USER.getId(), "invalid");
+        boolean userIsValid = userService.isValidUser(ENABLED_USER.getId(), "invalid password");
         assertFalse(userIsValid);
 
         ArgumentCaptor<String> passwordCaptor = ArgumentCaptor.forClass(String.class);
         verify(passwordEncoder).encode(passwordCaptor.capture());
-        assertEquals("invalid", passwordCaptor.getValue());
+        assertEquals("invalid password", passwordCaptor.getValue());
     }
 
     @Test

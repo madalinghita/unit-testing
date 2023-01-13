@@ -10,7 +10,7 @@ public class KDeepStubsTest {
 
     @Test
     public void testVerify() {
-        We mock = mock(We.class, Mockito.RETURNS_DEEP_STUBS);
+        We mock = mock(We.class, Mockito.RETURNS_DEEP_STUBS); //an answer that returns deep stubs (not mocks).
 
         mock.we().are().so().deep();
 

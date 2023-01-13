@@ -24,6 +24,7 @@ public class HArgumentMatchersTest {
 
         assertEquals("exact", passwordEncoder.encode("1"));
         assertEquals("exact", passwordEncoder.encode("abc"));
+        assertNull(passwordEncoder.encode(null));
     }
 
     @Test

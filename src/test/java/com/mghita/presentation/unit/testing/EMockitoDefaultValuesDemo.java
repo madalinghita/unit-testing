@@ -1,7 +1,6 @@
 package com.mghita.presentation.unit.testing;
 
 import org.junit.jupiter.api.Test;
-import org.mockito.Answers;
 
 import java.util.Collection;
 import java.util.Collections;

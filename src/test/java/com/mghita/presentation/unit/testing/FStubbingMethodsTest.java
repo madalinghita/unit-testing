@@ -44,7 +44,7 @@ public class FStubbingMethodsTest {
     @Test
     public void thenAnswerThrowException() {
         when(passwordEncoder.encode("1")).thenAnswer(invocation -> {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(invocation.toString());
         });
 
         Assertions.assertThrows(IllegalArgumentException.class, () -> passwordEncoder.encode("1"));

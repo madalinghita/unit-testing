@@ -29,7 +29,9 @@ public class IVerificationTest {
     @Test
     public void artificialExampleWithArgumentMatchers() {
         passwordEncoder.encode("a");
-        verify(passwordEncoder).encode(anyString());
+        passwordEncoder.encode("a");
+        passwordEncoder.encode("a");
+        verify(passwordEncoder, times(3)).encode(anyString());
 
 /*
         // verify the exact number of invocations
